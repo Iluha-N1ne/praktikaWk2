@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SPO;
 using System.Windows.Forms;
 
 namespace praktikaWk2.mainPage
@@ -15,6 +8,25 @@ namespace praktikaWk2.mainPage
         public mainPage()
         {
             InitializeComponent();
+        }
+        bool change;
+        private void makePurchaseBtn_Click(object sender, System.EventArgs e)
+        {
+            orderPage.orderPage transfer = new orderPage.orderPage();
+            Transfer.User.change = false;
+            transfer.Show();
+        }
+
+        private void commitPurchaseBtn_Click(object sender, System.EventArgs e)
+        {
+            orderPage.orderPage transfer = new orderPage.orderPage();
+            Transfer.User.change = true;
+            transfer.Show();
+        }
+
+        private void mainPage_Load(object sender, System.EventArgs e)
+        {
+            hiLbl.Text = $"Здравствуйте, {Transfer._Name}";
         }
     }
 }
