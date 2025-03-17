@@ -28,72 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Bck_Btn = new System.Windows.Forms.Button();
-            this.makePurchaseBtn = new System.Windows.Forms.Button();
-            this.commitPurchaseBtn = new System.Windows.Forms.Button();
             this.hiLbl = new System.Windows.Forms.Label();
+            this.exitBtn = new System.Windows.Forms.PictureBox();
+            this.commitPurchaseBtn = new System.Windows.Forms.PictureBox();
+            this.makePurchaseBtn = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.exitBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commitPurchaseBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.makePurchaseBtn)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Bck_Btn
-            // 
-            this.Bck_Btn.Font = new System.Drawing.Font("Acherus Feral Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Bck_Btn.Location = new System.Drawing.Point(12, 449);
-            this.Bck_Btn.Name = "Bck_Btn";
-            this.Bck_Btn.Size = new System.Drawing.Size(50, 49);
-            this.Bck_Btn.TabIndex = 15;
-            this.Bck_Btn.Text = "↩";
-            this.Bck_Btn.UseVisualStyleBackColor = true;
-            // 
-            // makePurchaseBtn
-            // 
-            this.makePurchaseBtn.Location = new System.Drawing.Point(25, 169);
-            this.makePurchaseBtn.Name = "makePurchaseBtn";
-            this.makePurchaseBtn.Size = new System.Drawing.Size(445, 75);
-            this.makePurchaseBtn.TabIndex = 16;
-            this.makePurchaseBtn.Text = "Сделать заказ...";
-            this.makePurchaseBtn.UseVisualStyleBackColor = true;
-            this.makePurchaseBtn.Click += new System.EventHandler(this.makePurchaseBtn_Click);
-            // 
-            // commitPurchaseBtn
-            // 
-            this.commitPurchaseBtn.Location = new System.Drawing.Point(25, 264);
-            this.commitPurchaseBtn.Name = "commitPurchaseBtn";
-            this.commitPurchaseBtn.Size = new System.Drawing.Size(445, 75);
-            this.commitPurchaseBtn.TabIndex = 23;
-            this.commitPurchaseBtn.Text = "Ваши заказы";
-            this.commitPurchaseBtn.UseVisualStyleBackColor = true;
-            this.commitPurchaseBtn.Click += new System.EventHandler(this.commitPurchaseBtn_Click);
             // 
             // hiLbl
             // 
-            this.hiLbl.AutoSize = true;
-            this.hiLbl.Location = new System.Drawing.Point(173, 54);
+            this.hiLbl.Font = new System.Drawing.Font("Acherus Feral Bold", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.hiLbl.Location = new System.Drawing.Point(19, 9);
+            this.hiLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.hiLbl.Name = "hiLbl";
-            this.hiLbl.Size = new System.Drawing.Size(140, 16);
+            this.hiLbl.Size = new System.Drawing.Size(379, 175);
             this.hiLbl.TabIndex = 24;
             this.hiLbl.Text = "Здравствуйте, NNN!";
+            this.hiLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // exitBtn
+            // 
+            this.exitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.exitBtn.Image = global::praktikaWk2.Properties.Resources.Button3;
+            this.exitBtn.Location = new System.Drawing.Point(133, 449);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(157, 73);
+            this.exitBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.exitBtn.TabIndex = 27;
+            this.exitBtn.TabStop = false;
+            // 
+            // commitPurchaseBtn
+            // 
+            this.commitPurchaseBtn.BackColor = System.Drawing.Color.Transparent;
+            this.commitPurchaseBtn.Image = global::praktikaWk2.Properties.Resources.YourOrders;
+            this.commitPurchaseBtn.Location = new System.Drawing.Point(19, 290);
+            this.commitPurchaseBtn.Name = "commitPurchaseBtn";
+            this.commitPurchaseBtn.Size = new System.Drawing.Size(379, 73);
+            this.commitPurchaseBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.commitPurchaseBtn.TabIndex = 26;
+            this.commitPurchaseBtn.TabStop = false;
+            this.commitPurchaseBtn.Click += new System.EventHandler(this.commitPurchaseBtn_Click);
+            // 
+            // makePurchaseBtn
+            // 
+            this.makePurchaseBtn.BackColor = System.Drawing.Color.Transparent;
+            this.makePurchaseBtn.Image = global::praktikaWk2.Properties.Resources.MakeOrder;
+            this.makePurchaseBtn.Location = new System.Drawing.Point(19, 187);
+            this.makePurchaseBtn.Name = "makePurchaseBtn";
+            this.makePurchaseBtn.Size = new System.Drawing.Size(379, 73);
+            this.makePurchaseBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.makePurchaseBtn.TabIndex = 25;
+            this.makePurchaseBtn.TabStop = false;
+            this.makePurchaseBtn.Click += new System.EventHandler(this.makePurchaseBtn_Click);
             // 
             // mainPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 510);
-            this.Controls.Add(this.hiLbl);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(431, 577);
+            this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.commitPurchaseBtn);
             this.Controls.Add(this.makePurchaseBtn);
-            this.Controls.Add(this.Bck_Btn);
+            this.Controls.Add(this.hiLbl);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(447, 616);
+            this.MinimumSize = new System.Drawing.Size(447, 616);
             this.Name = "mainPage";
             this.Text = "mainPage >>> Главная форма пользователя";
             this.Load += new System.EventHandler(this.mainPage_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.exitBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commitPurchaseBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.makePurchaseBtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button Bck_Btn;
-        private System.Windows.Forms.Button makePurchaseBtn;
-        private System.Windows.Forms.Button commitPurchaseBtn;
         private System.Windows.Forms.Label hiLbl;
+        private System.Windows.Forms.PictureBox makePurchaseBtn;
+        private System.Windows.Forms.PictureBox commitPurchaseBtn;
+        private System.Windows.Forms.PictureBox exitBtn;
     }
 }

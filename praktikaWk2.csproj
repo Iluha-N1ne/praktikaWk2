@@ -171,5 +171,14 @@
   <ItemGroup>
     <None Include="assets\Button2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\MakeOrder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\YourOrders.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\Button3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

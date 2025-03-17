@@ -1,6 +1,6 @@
-﻿using SPO;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using SPO;
 
 namespace praktikaWk2
 {
@@ -53,7 +53,7 @@ namespace praktikaWk2
             string Password = Pass_Box.Text; Password = Password.Replace(" ", "");
             if (Code == "admin")
             {
-                if(Login != "" || Password != "")
+                if (Login != "" || Password != "")
                 {
                     CodePass.CreateHash(Login, Password, role);
                 }
