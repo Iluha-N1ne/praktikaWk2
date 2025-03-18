@@ -13,7 +13,7 @@ namespace praktikaWk2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new adminPage.adminPage());
+            Application.Run(new mainPage.mainPage());
         }
     }
 }

@@ -90,28 +90,6 @@ namespace praktikaWk2.mainPage.orderPage
             table.TableName = "Production";
             #endregion
 
-            #region ---Заполнение sortCmBox---
-            using (MySqlConnection conn = new MySqlConnection(transfer.getConnStr()))
-            {
-                try
-                {
-                    conn.Open();
-                    string query = $@"SELECT typeName From typeProduction;";
-                    using (MySqlCommand command = new MySqlCommand(query, conn))
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            sortCmBox.Items.Add(reader["typeName"].ToString());
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, ex.HResult.ToString());
-                }
-            }
-            #endregion
         }
         public bool formLoad(bool change)
         {
@@ -162,14 +140,14 @@ namespace praktikaWk2.mainPage.orderPage
             string Purchase = dataGrid.Rows[dataGrid.CurrentRow.Index].Cells["Название"].Value.ToString();
             int Cost = int.Parse(dataGrid.Rows[dataGrid.CurrentRow.Index].Cells["Цена"].Value.ToString());
 
-            purchaseBtn.Text = Purchase;
-            costLbl.Text = Cost.ToString();
+            purchaseLb.Text = Purchase;
+            costLbl.Text = Cost.ToString() + " ₽";
             #endregion
         }
 
         private void createOrderBtn_Click(object sender, EventArgs e)
         {
-            purchase = purchaseBtn.Text;
+            purchase = purchaseLb.Text;
             getFromProduction();
         }
         #region Получение всего нужного для заказа
@@ -249,18 +227,18 @@ namespace praktikaWk2.mainPage.orderPage
         private void collectOrderType_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            bool visible = (collectOrderType.SelectedIndex == 1) ? adressEdit.ReadOnly = false : adressEdit.ReadOnly = true;
 
         }
         #endregion
-        private void sortCmBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void sortCmBox_TextUpdate(object sender, EventArgs e)
-        {
-            string query1 = $"SELECT * From Production Where Type = {sortCmBox.Text};";
+            if (checkBox1.Checked)
+            {
+                adressEdit.Enabled = false;
+            } else
+            {
+                adressEdit.Enabled = true; 
+            }
         }
     }
 }
