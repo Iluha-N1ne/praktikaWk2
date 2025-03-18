@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using SPO;
@@ -29,47 +31,11 @@ namespace praktikaWk2.adminPage
             { "Цена","Cost" }
         };
 
-        private void Bck_Btn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void adminPage_Load(object sender, EventArgs e)
-        {
-            #region ---SQL---
-            Transfer transfer = new Transfer();
-            using (MySqlConnection conn = new MySqlConnection(transfer.getConnStr()))
-            {
-                try
-                {
-                    conn.Open();
-                    string query = $@"SELECT table_name FROM information_schema.tables WHERE table_schema = 'Market';";
-                    using (MySqlCommand command = new MySqlCommand(query, conn))
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            slctTableCmBox.Items.Add(reader["table_name"].ToString());
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, ex.HResult.ToString());
-                }
-            }
-            #endregion
-        }
-
-        private void slctTableCmBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            changeDB();
-        }
         private void changeDB()
         {
             #region ---SQL---
             string query;
-            if (slctTableCmBox.Text == "Users")
+            if (table == "Users")
             {
                 query = $@"SELECT id AS Номер,
                         Login AS Логин, 
@@ -78,7 +44,7 @@ namespace praktikaWk2.adminPage
                         Role AS Роль FROM Users;";
                 fillDataGrid(query);
             }
-            if (slctTableCmBox.Text == "Production")
+            if (table == "Production")
             {
                 query = $@"SELECT id AS Номер,
                         Name AS Название, 
@@ -87,13 +53,13 @@ namespace praktikaWk2.adminPage
                         Cost AS Цена FROM Production;";
                 fillDataGrid(query);
             }
-            if (slctTableCmBox.Text == "typeProduction")
+            if (table == "typeProduction")
             {
                 query = $@"SELECT id AS Номер,
                         typeName As ТипПродукта FROM typeProduction;";
                 fillDataGrid(query);
             }
-            if (slctTableCmBox.Text == "Purchase")
+            if (table == "Purchase")
             {
                 query = $@"SELECT Purchase.id AS Номер,
                         User_id AS Пользователь, 
@@ -109,6 +75,7 @@ namespace praktikaWk2.adminPage
             }
             #endregion
         }
+
         private void fillDataGrid(string query)
         {
             Transfer transfer = new Transfer();
@@ -120,18 +87,10 @@ namespace praktikaWk2.adminPage
                 adapter.Fill(dataTable);
                 dataGrid.DataSource = dataTable;
                 dataGrid.AutoGenerateColumns = true;
-                //MessageBox.Show($"Rows returned: {dataTable.Rows.Count}");
-
-                foreach (DataColumn column in dataTable.Columns) { MessageBox.Show(column.ColumnName); }
-
             }
         }
-        //
-        private void ToDB_Btn_Click(object sender, EventArgs e)
-        {
-            ToDB();
-        }
-        private void ToDB()
+
+        private void ToDB(string tableName)
         {
             #region ---Region---
             var dataSet = new DataSet();
@@ -145,10 +104,8 @@ namespace praktikaWk2.adminPage
                 }
             }
 
-            table.TableName = slctTableCmBox.Text;
+            table.TableName = tableName;
             dataSet.Tables.Add(table);
-
-            foreach (DataColumn column in table.Columns) { MessageBox.Show(column.ColumnName); }
 
             Transfer transfer = new Transfer();
             try
@@ -157,18 +114,18 @@ namespace praktikaWk2.adminPage
                 {
 
                     var adapter = new MySqlDataAdapter();
-                    adapter.SelectCommand = new MySqlCommand($"SELECT * FROM {slctTableCmBox.Text}", conn);
+                    adapter.SelectCommand = new MySqlCommand($"SELECT * FROM {tableName}", conn);
                     var builder = new MySqlCommandBuilder(adapter);
 
                     adapter.InsertCommand = builder.GetInsertCommand();
-                    adapter.Update(dataSet, slctTableCmBox.Text);
+                    adapter.Update(dataSet, tableName);
                 }
                 dataSet.Reset();
                 changeDB();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+               MessageBox.Show(ex.ToString());
             }
             #endregion
         }
@@ -182,7 +139,7 @@ namespace praktikaWk2.adminPage
                 int ID = int.Parse(dataGrid.Rows[dataGrid.CurrentRow.Index].Cells["Номер"].Value.ToString());
                 using (MySqlConnection connection = new MySqlConnection(transfer.getConnStr()))
                 {
-                    string query = $"DELETE FROM {slctTableCmBox.Text} WHERE id = {ID}";
+                    string query = $"DELETE FROM {table} WHERE id = {ID}";
                     MySqlCommand command = new MySqlCommand(query, connection);
                     try
                     {
@@ -203,6 +160,62 @@ namespace praktikaWk2.adminPage
                 MessageBox.Show($"Ошибка: {ex.Message}");
             }
             #endregion
+        }
+
+        string table;
+
+        private void ToDB_Btn_Click(object sender, EventArgs e)
+        {
+            ToDB(table);
+        }
+
+        private void Users_Btn_Click(object sender, EventArgs e)
+        {
+            Users_Btn.BackColor = Color.FromArgb(134, 22, 26);
+            Purchase_Btn.BackColor = Color.FromArgb(217, 31, 37);
+            Production_Btn.BackColor = Color.FromArgb(217, 31, 37);
+            typeProduction_Btn.BackColor = Color.FromArgb(217, 31, 37);
+
+            table = "Users";
+            changeDB();
+        }
+
+        private void Purchase_Btn_Click(object sender, EventArgs e)
+        {
+            Users_Btn.BackColor = Color.FromArgb(217, 31, 37);
+            Purchase_Btn.BackColor = Color.FromArgb(134, 22, 26);
+            Production_Btn.BackColor = Color.FromArgb(217, 31, 37);
+            typeProduction_Btn.BackColor = Color.FromArgb(217, 31, 37);
+
+            table = "Purchase";
+            changeDB();
+        }
+
+        private void Production_Btn_Click(object sender, EventArgs e)
+        {
+            Users_Btn.BackColor = Color.FromArgb(217, 31, 37);
+            Purchase_Btn.BackColor = Color.FromArgb(217, 31, 37);
+            Production_Btn.BackColor = Color.FromArgb(134, 22, 26);
+            typeProduction_Btn.BackColor = Color.FromArgb(217, 31, 37);
+
+            table = "Production";
+            changeDB();
+        }
+
+        private void typeProduction_Btn_Click(object sender, EventArgs e)
+        {
+            Users_Btn.BackColor = Color.FromArgb(217, 31, 37);
+            Purchase_Btn.BackColor = Color.FromArgb(217, 31, 37);
+            Production_Btn.BackColor = Color.FromArgb(217, 31, 37);
+            typeProduction_Btn.BackColor = Color.FromArgb(134, 22, 26);
+
+            table = "typeProduction";
+            changeDB();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

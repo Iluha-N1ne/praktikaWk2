@@ -9,7 +9,6 @@ namespace praktikaWk2.mainPage
         {
             InitializeComponent();
         }
-        bool change;
 
         private void mainPage_Load(object sender, System.EventArgs e)
         {
