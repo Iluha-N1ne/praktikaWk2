@@ -1,5 +1,5 @@
-﻿using SPO;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using SPO;
 
 namespace praktikaWk2.mainPage
 {
@@ -10,8 +10,15 @@ namespace praktikaWk2.mainPage
             InitializeComponent();
         }
         bool change;
+
+        private void mainPage_Load(object sender, System.EventArgs e)
+        {
+            hiLbl.Text = $"Здравствуйте, {Transfer._Name}";
+        }
+
         private void makePurchaseBtn_Click(object sender, System.EventArgs e)
         {
+
             orderPage.orderPage transfer = new orderPage.orderPage();
             Transfer.User.change = false;
             transfer.Show();
@@ -19,14 +26,11 @@ namespace praktikaWk2.mainPage
 
         private void commitPurchaseBtn_Click(object sender, System.EventArgs e)
         {
+
             orderPage.orderPage transfer = new orderPage.orderPage();
             Transfer.User.change = true;
             transfer.Show();
         }
-
-        private void mainPage_Load(object sender, System.EventArgs e)
-        {
-            hiLbl.Text = $"Здравствуйте, {Transfer._Name}";
-        }
+    
     }
 }

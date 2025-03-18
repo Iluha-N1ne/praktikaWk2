@@ -1,10 +1,10 @@
-﻿using praktikaWk2;
-using praktikaWk2.adminPage;
-using praktikaWk2.mainPage;
-using System;
+﻿using System;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Windows.Forms;
+using praktikaWk2;
+using praktikaWk2.adminPage;
+using praktikaWk2.mainPage;
 
 namespace SPO
 {
@@ -51,7 +51,7 @@ namespace SPO
                 MessageBox.Show($"true user login, ${role}");
 
                 Form1 _transfer = new Form1();
-                if(role == "admin")
+                if (role == "admin")
                 {
                     adminPage __trasfer = new adminPage();
                     __trasfer.Show();
@@ -59,10 +59,10 @@ namespace SPO
                 }
                 else
                 {
-                mainPage trasfer = new mainPage();
+                    mainPage trasfer = new mainPage();
 
-                trasfer.Show();
-                _transfer.Hide();
+                    trasfer.Show();
+                    _transfer.Hide();
                 }
 
             }

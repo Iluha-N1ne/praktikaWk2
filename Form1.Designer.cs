@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Inf_Adm = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Verfy_Box = new System.Windows.Forms.TextBox();
             this.Pass_Box = new System.Windows.Forms.TextBox();
             this.Log_Box = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,9 +44,10 @@
             this.To_Log = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Reg_Btn = new System.Windows.Forms.Button();
-            this.Adm_Lb = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Pass_Btn = new System.Windows.Forms.Button();
+            this.toSotrid = new System.Windows.Forms.Label();
+            this.chngAuto = new System.Windows.Forms.Label();
             this.Log_Pnl.SuspendLayout();
             this.Login_Pnl.SuspendLayout();
             this.Reg_Pnl.SuspendLayout();
@@ -56,17 +55,6 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Inf_Adm
-            // 
-            this.Inf_Adm.AutoSize = true;
-            this.Inf_Adm.Font = new System.Drawing.Font("Century Gothic", 20.25F);
-            this.Inf_Adm.Location = new System.Drawing.Point(15, 361);
-            this.Inf_Adm.Name = "Inf_Adm";
-            this.Inf_Adm.Size = new System.Drawing.Size(407, 40);
-            this.Inf_Adm.TabIndex = 21;
-            this.Inf_Adm.Text = "Ключ администратора";
-            this.Inf_Adm.Visible = false;
             // 
             // label2
             // 
@@ -87,17 +75,6 @@
             this.label1.Size = new System.Drawing.Size(67, 24);
             this.label1.TabIndex = 19;
             this.label1.Text = "Логин:";
-            // 
-            // Verfy_Box
-            // 
-            this.Verfy_Box.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.Verfy_Box.Location = new System.Drawing.Point(19, 405);
-            this.Verfy_Box.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Verfy_Box.Multiline = true;
-            this.Verfy_Box.Name = "Verfy_Box";
-            this.Verfy_Box.Size = new System.Drawing.Size(517, 42);
-            this.Verfy_Box.TabIndex = 18;
-            this.Verfy_Box.Visible = false;
             // 
             // Pass_Box
             // 
@@ -196,18 +173,17 @@
             // 
             this.Login_Pnl.Controls.Add(this.Log_Pnl);
             this.Login_Pnl.Controls.Add(this.Reg_Lb);
-            this.Login_Pnl.Location = new System.Drawing.Point(15, 473);
+            this.Login_Pnl.Location = new System.Drawing.Point(15, 360);
             this.Login_Pnl.Margin = new System.Windows.Forms.Padding(4);
             this.Login_Pnl.Name = "Login_Pnl";
-            this.Login_Pnl.Size = new System.Drawing.Size(523, 180);
+            this.Login_Pnl.Size = new System.Drawing.Size(523, 184);
             this.Login_Pnl.TabIndex = 30;
             // 
             // Reg_Pnl
             // 
             this.Reg_Pnl.Controls.Add(this.panel3);
             this.Reg_Pnl.Controls.Add(this.panel2);
-            this.Reg_Pnl.Controls.Add(this.Adm_Lb);
-            this.Reg_Pnl.Location = new System.Drawing.Point(16, 469);
+            this.Reg_Pnl.Location = new System.Drawing.Point(22, 368);
             this.Reg_Pnl.Margin = new System.Windows.Forms.Padding(4);
             this.Reg_Pnl.Name = "Reg_Pnl";
             this.Reg_Pnl.Size = new System.Drawing.Size(523, 180);
@@ -261,20 +237,6 @@
             this.Reg_Btn.UseVisualStyleBackColor = true;
             this.Reg_Btn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Adm_Lb
-            // 
-            this.Adm_Lb.AutoSize = true;
-            this.Adm_Lb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Adm_Lb.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Adm_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(22)))), ((int)(((byte)(26)))));
-            this.Adm_Lb.Location = new System.Drawing.Point(165, 127);
-            this.Adm_Lb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Adm_Lb.Name = "Adm_Lb";
-            this.Adm_Lb.Size = new System.Drawing.Size(179, 33);
-            this.Adm_Lb.TabIndex = 29;
-            this.Adm_Lb.Text = "Я сотрудник";
-            this.Adm_Lb.Click += new System.EventHandler(this.label7_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::praktikaWk2.Properties.Resources.SushiWok;
@@ -297,22 +259,50 @@
             this.Pass_Btn.UseVisualStyleBackColor = true;
             this.Pass_Btn.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // toSotrid
+            // 
+            this.toSotrid.AutoSize = true;
+            this.toSotrid.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.toSotrid.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.toSotrid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(22)))), ((int)(((byte)(26)))));
+            this.toSotrid.Location = new System.Drawing.Point(183, 597);
+            this.toSotrid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.toSotrid.Name = "toSotrid";
+            this.toSotrid.Size = new System.Drawing.Size(184, 27);
+            this.toSotrid.TabIndex = 33;
+            this.toSotrid.Text = "Я пользователь";
+            this.toSotrid.Click += new System.EventHandler(this.chngAuto_Click);
+            // 
+            // chngAuto
+            // 
+            this.chngAuto.AutoSize = true;
+            this.chngAuto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chngAuto.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chngAuto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(22)))), ((int)(((byte)(26)))));
+            this.chngAuto.Location = new System.Drawing.Point(187, 591);
+            this.chngAuto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.chngAuto.Name = "chngAuto";
+            this.chngAuto.Size = new System.Drawing.Size(179, 33);
+            this.chngAuto.TabIndex = 34;
+            this.chngAuto.Text = "Я сотрудник";
+            this.chngAuto.Click += new System.EventHandler(this.chngAuto_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(570, 658);
+            this.Controls.Add(this.chngAuto);
+            this.Controls.Add(this.toSotrid);
             this.Controls.Add(this.Pass_Btn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Login_Pnl);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.Inf_Adm);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Verfy_Box);
             this.Controls.Add(this.Pass_Box);
             this.Controls.Add(this.Log_Box);
             this.Controls.Add(this.Reg_Pnl);
@@ -324,7 +314,6 @@
             this.Login_Pnl.ResumeLayout(false);
             this.Login_Pnl.PerformLayout();
             this.Reg_Pnl.ResumeLayout(false);
-            this.Reg_Pnl.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -334,11 +323,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label Inf_Adm;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Verfy_Box;
         private System.Windows.Forms.Button To_Log;
         private System.Windows.Forms.Button Log_Btn;
         private System.Windows.Forms.TextBox Pass_Box;
@@ -353,9 +339,10 @@
         private System.Windows.Forms.Panel Reg_Pnl;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button Reg_Btn;
-        private System.Windows.Forms.Label Adm_Lb;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button Pass_Btn;
+        private System.Windows.Forms.Label toSotrid;
+        private System.Windows.Forms.Label chngAuto;
     }
 }
 

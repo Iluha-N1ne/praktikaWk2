@@ -83,9 +83,39 @@ namespace praktikaWk2.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Button3 {
+            get {
+                object obj = ResourceManager.GetObject("Button3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MakeOrder {
+            get {
+                object obj = ResourceManager.GetObject("MakeOrder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SushiWok {
             get {
                 object obj = ResourceManager.GetObject("SushiWok", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap YourOrders {
+            get {
+                object obj = ResourceManager.GetObject("YourOrders", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -1,11 +1,9 @@
-﻿using MySql.Data.MySqlClient;
-using MySqlX.XDevAPI.Relational;
-using Org.BouncyCastle.Bcpg;
-using SPO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using SPO;
 
 namespace praktikaWk2.mainPage.orderPage
 {
@@ -112,13 +110,13 @@ namespace praktikaWk2.mainPage.orderPage
                 {
                     MessageBox.Show(ex.Message, ex.HResult.ToString());
                 }
-            } 
+            }
             #endregion
         }
         public bool formLoad(bool change)
         {
             #region --- Вызов заполениения таблицы для проверки оформленных заказов ---
-            bool prikol = (change) ? dataGrid1.Visible = true: dataGrid1.Visible = false;
+            bool prikol = (change) ? dataGrid1.Visible = true : dataGrid1.Visible = false;
 
             Transfer transfer = new Transfer();
 
@@ -185,7 +183,7 @@ namespace praktikaWk2.mainPage.orderPage
                 try
                 {
                     conn.Open();
-                    
+
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
@@ -242,7 +240,7 @@ namespace praktikaWk2.mainPage.orderPage
                     cmd.ExecuteNonQuery();
                     //MessageBox.Show($"{id}, {_id}");
                 }
-                
+
             }
         }
 
@@ -250,9 +248,9 @@ namespace praktikaWk2.mainPage.orderPage
         #region Переключатели 
         private void collectOrderType_SelectedIndexChanged(object sender, EventArgs e)
         {
-        
+
             bool visible = (collectOrderType.SelectedIndex == 1) ? adressEdit.ReadOnly = false : adressEdit.ReadOnly = true;
-        
+
         }
         #endregion
         private void sortCmBox_SelectedIndexChanged(object sender, EventArgs e)

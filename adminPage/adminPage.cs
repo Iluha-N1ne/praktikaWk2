@@ -1,13 +1,9 @@
-﻿using MySql.Data.MySqlClient;
-using MySqlX.XDevAPI.Relational;
-using Org.BouncyCastle.Tsp;
-using SPO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using SPO;
 
 namespace praktikaWk2.adminPage
 {
@@ -126,11 +122,11 @@ namespace praktikaWk2.adminPage
                 dataGrid.AutoGenerateColumns = true;
                 //MessageBox.Show($"Rows returned: {dataTable.Rows.Count}");
 
-                foreach (DataColumn column in dataTable.Columns){MessageBox.Show(column.ColumnName);}
+                foreach (DataColumn column in dataTable.Columns) { MessageBox.Show(column.ColumnName); }
 
             }
         }
-//
+        //
         private void ToDB_Btn_Click(object sender, EventArgs e)
         {
             ToDB();
@@ -170,7 +166,7 @@ namespace praktikaWk2.adminPage
                 dataSet.Reset();
                 changeDB();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -205,7 +201,7 @@ namespace praktikaWk2.adminPage
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка: {ex.Message}");
-            }           
+            }
             #endregion
         }
     }
